@@ -11,8 +11,10 @@ jobs:
 
     steps:
       - name: Notification via curl request
+        env:
+          WEBHOOK: ${{ secrets.WEBHOOK2 }}
         run: |
           curl -X POST \
             -H "Content-Type: application/json" \
             -d '{"text":"Hello from GitHub Actions! From Pranav 🚀"}' \
-            "${{ secrets.WEBHOOK1 }}
+            "$WEBHOOK"
